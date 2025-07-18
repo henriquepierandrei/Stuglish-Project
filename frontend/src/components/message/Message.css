@@ -1,0 +1,62 @@
+.message-overlay {
+    overflow-x: hidden;
+    position: fixed;
+    width: 999vmax;
+    height: 250vh;
+    background-color: rgba(0, 0, 0, 0.664);
+    top: 50%;
+    left: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    transform: translate(-50%, -50%);
+    
+}
+
+
+.message-box {
+    transition: 1s;
+    cursor: pointer;
+    background-color:rgb(29, 29, 31);
+    border: 1px solid rgb(110, 105, 105);
+    padding: 24px 60px;
+    border-radius: 12px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+    position: relative;
+    max-width: 400px;
+    width: max-content;
+    text-align: center;
+    font-size: 1.1rem;
+    color: var(--error-color);
+    /* vermelho para erro */
+    font-weight: 600;
+}.message-box:hover {
+    box-shadow: var(--shadow-lg);
+    transform: scale(1.05);
+}
+
+.message-close-btn {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    background: transparent;
+    border: none;
+    font-size: 28px;
+    font-weight: bold;
+    color: #c53030;
+    cursor: pointer;
+    line-height: 1;
+}
+
+.message-close-btn:hover {
+    color: #9b2c2c;
+}
+
+@media (max-width: 600px) {
+    .message-box {
+        width: 280px;
+        padding: 43px;
+        font-size: 1rem;
+    }
+}

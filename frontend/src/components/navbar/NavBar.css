@@ -1,0 +1,246 @@
+/* NavBar Styles */
+.navbar-container {
+  position: sticky;
+  top: 0;
+  width: 95%;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  align-items: center;
+  padding: 0.5rem 1rem;
+  max-width: 1200px;
+  margin: 15px auto;
+  border-radius: 2rem;
+  justify-content: center !important;
+}
+
+.navbar {
+  flex: 1;
+}
+
+@media screen and (min-width: 1024px) {
+  .navbar {
+    max-width: 300px;
+    display: flex;
+    justify-content: center !important;
+  }
+
+  .social-media {
+    position: absolute !important;
+    right: 0px !important;
+  }
+
+}
+
+.navbar-list {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: 0.5rem;
+  background: var(--neutral-500);
+  border-radius: var(--border-radius-lg);
+  padding: 0.5rem;
+  box-shadow: var(--shadow-sm);
+  width: auto;
+  min-width: 300px;
+}
+
+.navbar-item {
+  margin: 0;
+  flex: 1;
+}
+
+.navbar-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem 1.5rem;
+  color: var(--neutral-600);
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.95rem;
+  border-radius: var(--border-radius);
+  transition: var(--transition-all);
+  position: relative;
+  overflow: hidden;
+  font-family: 'Onest', sans-serif;
+  width: 100%;
+}
+
+.navbar-link::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(59, 130, 246, 0.1), transparent);
+  transition: left 0.5s ease;
+}
+
+.navbar-link:hover::before {
+  left: 100%;
+}
+
+.navbar-link:hover {
+  color: var(--primary-color);
+  box-shadow: 2px 2px 50px var(--primary-color);
+  box-shadow: 2px 2px 50px black;
+  transform: translateY(-2px);
+}
+
+.navbar-link:active {
+  transform: translateY(0);
+  box-shadow: 2px 2px 50px var(--primary-color);
+}
+
+.navbar-link.active {
+  color: white;
+  background: var(--primary-color);
+  box-shadow: 2px 2px 102px var(--primary-color);
+}
+
+.navbar-link.active:hover {
+  background: var(--primary-hover);
+  color: white;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .navbar-container {
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1rem;
+  }
+
+  .navbar {
+    width: 100%;
+  }
+
+  .navbar-list {
+    flex-direction: column;
+    width: 100%;
+    gap: 0.25rem;
+    min-width: unset;
+  }
+
+  .navbar-link {
+    justify-content: center;
+    padding: 1rem;
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .navbar-container {
+    padding: 0.75rem;
+  }
+
+  .navbar-list {
+    padding: 0.25rem;
+  }
+
+  .navbar-link {
+    padding: 0.875rem;
+    font-size: 0.9rem;
+  }
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+  .navbar-container {
+    cursor: pointer;
+    transition: 1s;
+    background: rgba(17, 17, 17, 0.61);
+    border-bottom-color: var(--neutral-200);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 2px 1px 125px rgb(0, 0, 0);
+  }
+
+  .navbar-container:hover {
+    scale: 1.01;
+    transform: translateY(5px);
+  }
+
+  .navbar-list {
+    background: rgba(29, 29, 29, 0.74);
+  }
+
+  @media screen and (min-width: 1024px) {
+    .navbar-list {
+      background: rgba(29, 29, 29, 0.74);
+
+    }
+
+  }
+
+  .navbar-link {
+    background-color: var(--neutral-200);
+  }
+
+  .navbar-link {
+    color: var(--neutral-400);
+  }
+
+  .navbar-link:hover {
+    color: var(--primary-color);
+    background: var(--neutral-200);
+  }
+
+  .navbar-link:hover {
+    color: white;
+    border: 1px solid var(--primary-color);
+
+  }
+}
+
+/* Social Media Responsive */
+@media (max-width: 768px) {
+  .social-media {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 425px) {
+  .social-media {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+}
+
+/* Animation for page load */
+.navbar-container {
+  animation: slideDown 0.3s ease-out;
+}
+
+@keyframes slideDown {
+  from {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Focus states for accessibility */
+.navbar-link:focus {
+  outline: none;
+  background-color: var(--neutral-6000);
+  color: white;
+  box-shadow: none;
+  border: 1px solid var(--primary-color);
+}
+
+.navbar-link:focus-visible {
+  outline: 2px solid var(--primary-color);
+  outline-offset: 2px;
+}

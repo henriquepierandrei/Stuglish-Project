@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Alerta de Requisição - Stuglish</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+            color: #333;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+        .header {
+            background: url('https://cdn.pixabay.com/animation/2023/03/19/02/34/02-34-11-741_512.gif') center/contain no-repeat,
+            linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px 20px;
+            text-align: center;
+            position: relative;
+            background-size: cover;
+        }
+        .header .logo {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            margin: 0 auto 15px;
+            display: block;
+            object-fit: cover;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+        .header h1 {
+            margin: 0;
+            font-size: 24px;
+            font-weight: bold;
+        }
+        .alert-badge {
+            background-color: #0f1551;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: bold;
+            margin-top: 10px;
+            display: inline-block;
+        }
+        .content {
+            padding: 20px;
+        }
+        .alert-info {
+            background-color: #f8f9fa;
+            border-left: 4px solid #0f1551;
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 4px;
+        }
+        .details-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+        .details-table th {
+            background-color: #495057;
+            color: white;
+            padding: 12px;
+            text-align: left;
+            font-weight: bold;
+            font-size: 14px;
+        }
+        .details-table td {
+            padding: 12px;
+            border-bottom: 1px solid #dee2e6;
+            vertical-align: top;
+        }
+        .details-table tr:last-child td {
+            border-bottom: none;
+        }
+        .details-table tr:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+        .label {
+            font-weight: bold;
+            color: #495057;
+            min-width: 120px;
+        }
+        .value {
+            word-break: break-word;
+            font-family: 'Courier New', monospace;
+            font-size: 13px;
+            color: #212529;
+        }
+        .status-success {
+            color: #28a745;
+            font-weight: bold;
+        }
+        .status-error {
+            color: #dc3545;
+            font-weight: bold;
+        }
+        .status-warning {
+            color: #ffc107;
+            font-weight: bold;
+        }
+        .footer {
+            background-color: #f8f9fa;
+            padding: 15px 20px;
+            text-align: center;
+            font-size: 12px;
+            color: #6c757d;
+            border-top: 1px solid #dee2e6;
+        }
+        .timestamp {
+            font-size: 12px;
+            color: #6c757d;
+            margin-top: 10px;
+        }
+        .priority-high {
+            color: #dc3545;
+            font-weight: bold;
+        }
+        .priority-medium {
+            color: #ffc107;
+            font-weight: bold;
+        }
+        .priority-low {
+            color: #28a745;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="header">
+        <img class="logo" src="https://res.cloudinary.com/dvadwwvub/image/upload/v1752252773/english_logo_mlebth.png" alt="">
+        <h1>🚨 Alerta de Requisição</h1>
+        <div class="alert-badge">NOVA REQUISIÇÃO</div>
+    </div>
+
+
+    <div class="content">
+        <div class="alert-info">
+            <strong>Uma nova requisição foi detectada no seu site!</strong>
+            <div class="timestamp">
+                <strong>Data/Hora:</strong> <span th:text="${TIMESTAMP}">DATA</span>
+            </div>
+        </div>
+
+        <table class="details-table">
+            <thead>
+            <tr>
+                <th colspan="2">Detalhes da Requisição</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td class="label">Método HTTP:</td>
+                <td class="value" th:text="${METHOD}">GET</td>
+            </tr>
+            <tr>
+                <td class="label">URL Solicitada:</td>
+                <td class="value" th:text="${URL}">/api/example</td>
+            </tr>
+            <tr>
+                <td class="label">Status Code:</td>
+                <td class="value" th:classappend="'status-' + ${STATUS_CLASS}" th:text="${STATUS_CODE}">200</td>
+            </tr>
+            <tr>
+                <td class="label">IP do Cliente:</td>
+                <td class="value" th:text="${CLIENT_IP}">127.0.0.1</td>
+            </tr>
+            <tr>
+                <td class="label">User Agent:</td>
+                <td class="value" th:text="${USER_AGENT}">Mozilla...</td>
+            </tr>
+            <tr>
+                <td class="label">Referrer:</td>
+                <td class="value" th:text="${REFERRER}">https://google.com</td>
+            </tr>
+            <tr>
+                <td class="label">Tempo de Resposta:</td>
+                <td class="value" th:text="${RESPONSE_TIME + 'ms'}">200ms</td>
+            </tr>
+            <tr>
+                <td class="label">Prioridade:</td>
+                <td class="value" th:classappend="'priority-' + ${PRIORITY_CLASS}" th:text="${PRIORITY}">ALTA</td>
+            </tr>
+            </tbody>
+        </table>
+
+        <table class="details-table" style="margin-top: 20px;">
+            <thead>
+            <tr>
+                <th colspan="2">Headers da Requisição</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td class="label">Accept:</td>
+                <td class="value" th:text="${ACCEPT_HEADER}">application/json</td>
+            </tr>
+            <tr>
+                <td class="label">Content-Type:</td>
+                <td class="value" th:text="${CONTENT_TYPE}">application/json</td>
+            </tr>
+            <tr>
+                <td class="label">Authorization:</td>
+                <td class="value" th:text="${AUTH_HEADER}">Bearer xxxxxx</td>
+            </tr>
+            </tbody>
+        </table>
+
+        <div style="margin-top: 20px;">
+            <h3 style="color: #495057; margin-bottom: 10px;">Dados da Requisição:</h3>
+            <div style="background-color: #f8f9fa; padding: 15px; border-radius: 4px; border: 1px solid #dee2e6;">
+                <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 12px; color: #212529; white-space: pre-wrap;"
+                     th:text="${REQUEST_BODY}">{"exemplo": "dados aqui"}</pre>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <p>Este é um alerta automático do sistema de monitoramento do seu site.</p>
+        <p>Para desativar estas notificações, acesse as configurações do seu sistema.</p>
+    </div>
+</div>
+</body>
+</html>
