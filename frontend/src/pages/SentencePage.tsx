@@ -8,6 +8,9 @@ import logo from '../assets/logo.png'; // Importando o logo
 import API_URL from '../api/api';
 import audio from '../assets/audio.mp3'; // Importando o áudio
 
+
+
+
 interface Option {
   id: number;
   word: string;
@@ -75,6 +78,9 @@ const SentencePage: React.FC = () => {
 
   return (
     <div className="container">
+      
+
+
       {error && (
         <Message
           message={error}
@@ -122,7 +128,7 @@ const SentencePage: React.FC = () => {
         className="input-field"
       />
 
-    
+
       <br /><br />
       <button
         onClick={fetchSentences}
