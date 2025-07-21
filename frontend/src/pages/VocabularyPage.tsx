@@ -82,7 +82,7 @@ const VocabularyPage: React.FC = () => {
             )}
             <img src={logo} alt="" className='logo-image' />
 
-            <h1 className="title">Treinador de Vocabulário</h1>
+            <h1 className="title">Gerador de palavras em Inglês</h1>
 
             <select
                 value={difficulty}
@@ -105,6 +105,7 @@ const VocabularyPage: React.FC = () => {
 
 
 
+
             <button
                 onClick={fetchVocabulary}
                 disabled={loading}
@@ -112,6 +113,7 @@ const VocabularyPage: React.FC = () => {
             >
                 {loading ? <div className='spinner'></div> : 'Gerar Palavras'}
             </button>
+            <p className='p-custom'>Esse projeto foi <strong className='strong-p'>'deploiado'</strong> com plataformas gratuitas, <strong className='strong-p'>não abusem! 😁</strong></p>
 
             {words.map((word) => (
                 <div key={word.id} className="card">
@@ -160,8 +162,8 @@ const VocabularyPage: React.FC = () => {
 
                         </div>
                     )}
-
                 </div>
+
 
             ))}
             <br /><br /><div style={{ display: 'flex', alignItems: 'center', gap: '8px', backgroundColor: '#1d1e1f', padding: '10px', borderRadius: '5px' }}>

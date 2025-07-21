@@ -17,7 +17,7 @@ const SocialMedia: React.FC = () => {
           animationData={flagAnimation}
           loop={false}
           autoplay={true}
-          className="footer-icon"
+          className="footer-icon lottie"
           style={{marginBottom: "5px"}}
         />
 
