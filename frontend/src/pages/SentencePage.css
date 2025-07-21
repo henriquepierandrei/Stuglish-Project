@@ -55,7 +55,7 @@
 }
 
 .btn-secondary:hover {
-    background: #e5e7eb; /* Cor fixa cinza claro */
+    background: linear-gradient(135deg, #2a2b2e, #162738);
     color: white;
     box-shadow: var(--shadow-md);
     transform: translateY(-1px);
@@ -183,7 +183,7 @@
 .card {
     padding: 24px;
     background: #1a1b1b; /* Cor fixa escura */
-    border: 1px solid #e5e7eb; /* Cor fixa cinza claro */
+    border: 1px solid #6b7280; /* Cor fixa cinza claro */
     color: white;
     border-radius: var(--border-radius);
     margin-top: 24px;
@@ -219,7 +219,7 @@
     height: 20px;
     cursor: pointer;
     appearance: none;
-    border: 2px solid #e5e7eb; /* Cor fixa cinza claro */
+    border: 2px solid #6b7280; /* Cor fixa cinza claro */
     border-radius: 4px;
     transition: var(--transition-all);
 }
