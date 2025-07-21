@@ -54,7 +54,10 @@ public class LoggingFilter implements Filter {
 
         if (logAvailable) {
             try {
-                emailLogService.sendRequestAlert(dto, requestBody);
+                // Se o request for de Keep Alive o email não será enviado para a monitoração da API!
+                if (!req.getRequestURI().equals("/health")){
+                    emailLogService.sendRequestAlert(dto, requestBody);
+                }
             } catch (MessagingException e) {
                 throw new RuntimeException(e);
             }

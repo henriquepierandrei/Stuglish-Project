@@ -4,9 +4,17 @@ import org.springframework.stereotype.Component;
 import tech.pierandrei.Stuglish.dto.RequestDto;
 import tech.pierandrei.Stuglish.dto.SentenceCompletionDTO;
 
+/**
+ * Contextos das IAs (Não altere, somente caso seja extremamente necessário, de preferência realize um backup dessa classe!)
+ */
 @Component
 public class ContextAIGemini {
 
+    /**
+     * Método para gerar vocabulário
+     * @param requestDto - Request Body
+     * @return Retorna o contexto em String
+     */
     public String contextAlpha(RequestDto requestDto){
         String prompt = String.format(
                 """
@@ -129,17 +137,17 @@ public class ContextAIGemini {
                         {
                           "id": 1,
                           "translation": "casa",
-                          "isCorrect": true
+                          "isCorrect": true ou false
                         },
                         {
                           "id": 2,
                           "translation": "carro",
-                          "isCorrect": false
+                          "isCorrect": true ou false
                         },
                         {
                           "id": 3,
                           "translation": "escola",
-                          "isCorrect": false
+                          "isCorrect": true ou false
                         }
                       ]
                     }
@@ -192,7 +200,11 @@ public class ContextAIGemini {
         return prompt;
     }
 
-    // Novo método para completar frases
+    /**
+     * Novo método para completar frases
+     * @param requestDto - Request Body
+     * @return - Retorna o contexto em String
+     */
     public String contextBeta(SentenceCompletionDTO requestDto) {
         String prompt = String.format(
                 """
@@ -309,17 +321,17 @@ public class ContextAIGemini {
                         {
                           "id": 1,
                           "word": "go",
-                          "isCorrect": true
+                          "isCorrect": true ou false
                         },
                         {
                           "id": 2,
                           "word": "goes",
-                          "isCorrect": false
+                          "isCorrect": true ou false
                         },
                         {
                           "id": 3,
                           "word": "going",
-                          "isCorrect": false
+                          "isCorrect": true ou false
                         }
                       ],
                       "translation": "Eu vou para o trabalho todos os dias."

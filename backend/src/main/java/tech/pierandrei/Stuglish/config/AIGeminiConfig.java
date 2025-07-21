@@ -36,7 +36,6 @@ public class AIGeminiConfig {
     public GenerateContentResponse configAIGemini(String context) throws JsonProcessingException, IOException {
         try {
             Client client = Client.builder().apiKey(key).build();
-
             GenerateContentResponse response = client.models.generateContent(
                     model,
                     context,

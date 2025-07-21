@@ -18,6 +18,7 @@ public class ExercisesController {
         this.exercisesService = exercisesService;
     }
 
+
     @PostMapping("/vocabulary/generate")
     public ResponseEntity<VocabularyResponseDTO> generateVocabulary(@RequestBody RequestDto request) throws IOException {
         return ResponseEntity.ok(exercisesService.generateWords(request));

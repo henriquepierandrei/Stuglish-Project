@@ -7,6 +7,9 @@ import jakarta.servlet.http.HttpServletRequestWrapper;
 
 import java.io.*;
 
+/**
+ * Obtenção dos dados da requisição do cliente
+ */
 public class CachedBodyHttpServletRequest extends HttpServletRequestWrapper {
     private final byte[] cachedBody;
 
