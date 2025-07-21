@@ -18,7 +18,7 @@ const SocialMedia: React.FC = () => {
           loop={false}
           autoplay={true}
           className="footer-icon lottie"
-          style={{marginBottom: "5px", width: "50px", height: "50px"}}
+          style={{marginBottom: "10px", minWidth: "30px", height: "30px"}}
         />
 
     </footer>

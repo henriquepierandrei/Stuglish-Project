@@ -11,6 +11,7 @@
     position: static;
     flex-direction: row;
     gap: 5px;
+    align-items: center;
     margin: 0;
 }
 
