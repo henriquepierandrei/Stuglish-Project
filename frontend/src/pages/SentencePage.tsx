@@ -6,6 +6,7 @@ import { FaX } from 'react-icons/fa6';
 import Message from '../components/message/Message';
 import logo from '../assets/logo.png'; // Importando o logo
 import API_URL from '../api/api';
+import audio from '../assets/audio.mp3'; // Importando o áudio
 
 interface Option {
   id: number;
@@ -51,6 +52,8 @@ const SentencePage: React.FC = () => {
         { difficulty, sentenceType, questionsQuantity }
       );
       setSentences(data.sentences || []);
+      const audioElement = new Audio(audio);
+      audioElement.play(); // Reproduz o áudio ao carregar as sentenças
     } catch (error) {
       setError("Erro ao carregar os dados. Tente novamente mais tarde.");
       setSentences([]);

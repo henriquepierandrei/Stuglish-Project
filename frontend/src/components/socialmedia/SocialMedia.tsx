@@ -5,7 +5,7 @@ import { FaGithub, FaLinkedin } from 'react-icons/fa';
 const SocialMedia: React.FC = () => {
   return (
     <footer className="social-media">
-      <a href="https://github.com/" className='github-link' target="_blank" rel="noopener noreferrer">
+      <a href="https://github.com/henriquepierandrei/Stuglish-Project/" className='github-link' target="_blank" rel="noopener noreferrer">
         <FaGithub className="footer-icon" />
       </a>
       <a href="https://www.linkedin.com/in/henrique-pierandrei/" className='linkedin-link' target="_blank" rel="noopener noreferrer">
