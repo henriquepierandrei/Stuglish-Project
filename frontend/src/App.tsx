@@ -8,7 +8,6 @@ function App() {
   return (
     <Router>
       <Body />
-      
       <NavBar />
       <Routes>
         <Route path="/completar" element={<SentencePage />} />
