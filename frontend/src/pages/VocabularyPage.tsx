@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import axios from 'axios';
 import './SentencePage.css';
-import logo from '../assets/logo.png'; // Importando o logo
 import { FaCheck } from 'react-icons/fa';
 import { FaX } from 'react-icons/fa6';
 import Message from '../components/message/Message';
@@ -80,7 +79,7 @@ const VocabularyPage: React.FC = () => {
 
                 />
             )}
-            <img src={logo} alt="" className='logo-image' />
+           
 
             <h1 className="title">Gerador de palavras em Inglês</h1>
 

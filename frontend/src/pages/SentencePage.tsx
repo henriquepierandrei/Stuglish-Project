@@ -4,12 +4,8 @@ import './SentencePage.css';
 import { FaCheck } from 'react-icons/fa';
 import { FaX } from 'react-icons/fa6';
 import Message from '../components/message/Message';
-import logo from '../assets/logo.png'; // Importando o logo
 import API_URL from '../api/api';
 import audio from '../assets/audio.mp3'; // Importando o áudio
-
-
-
 
 interface Option {
   id: number;
@@ -89,11 +85,7 @@ const SentencePage: React.FC = () => {
         />
       )}
 
-      <img
-        src={logo}
-        alt="Logo"
-        className="logo-image"
-      />
+      
 
       <h1 className="title">Gerador de Frases em Inglês</h1>
 
