@@ -163,7 +163,7 @@
 
 .gabarito span {
     transition: 1s;
-    border: 1px solid #e5e7eb; /* Cor fixa cinza claro */
+    border: 1px solid #6b7280; /* Cor fixa cinza claro */
     width: 70%;
     border-radius: 10px;
     word-wrap: break-word;
